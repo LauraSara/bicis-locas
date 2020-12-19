@@ -1,10 +1,3 @@
-function validarEmail(valor) {
-  if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
-  		return true;
-  } else {
-  		return false;
-  }
-}
 
 function validateForm(){
 	/* Escribe tú código aquí */
@@ -23,7 +16,6 @@ function validateForm(){
 			$("#name").parent().append("<span>La inicial debe ser mayúscula</span>");
 			return false;
 		}		
-
 		});
 
 	//apellido
@@ -57,6 +49,7 @@ function validateForm(){
 	if (select == 0){
 		$("select").parent().append("<span>Debes seleccionar una opcion</span>");
 	}
+
 		
 		//pattern="[A-Za-z]{4-16}"
 
@@ -66,13 +59,14 @@ function validateForm(){
 			$("#input-email").parent().append("<span>Ingresar correo electronico</span>");
 			return false;
 		}
-		else if($("#input-email").val().indexOf('@', 0) == -1 || $("#input-email").val().indexOf('.', 0) == -1) {
-				$("#input-email").parent().append("<span>Correo no valido</span>");
+		if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email)){
+				return true;
+		} else {
+				$("#input-email").parent().append("<span>No valido</span>");
 				return false;
-				//arreglar el formato
+
 		}
+
 	});
 }
-
-
-
+//eliminar span
